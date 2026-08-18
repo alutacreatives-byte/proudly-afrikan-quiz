@@ -1,0 +1,6 @@
+{
+  "name": "Proudly Afrikan Quiz",
+  "description": "Bold editorial AI quiz generator turning topics, study notes, and educational documents into tactile interactive quizzes in seconds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
