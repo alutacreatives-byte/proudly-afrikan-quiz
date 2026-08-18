@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Quiz, UserAnswer } from '../types';
 import { encodeQuizToUrl } from '../utils/quizShare';
+import { ShareModal } from './ShareModal';
 
 interface ResultsScreenProps {
   quiz: Quiz;
@@ -35,6 +36,7 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
   onHome,
 }) => {
   const [copied, setCopied] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const percentage = Math.round((score / totalQuestions) * 100);
 
   // Trigger celebration confetti if score >= 70%
@@ -160,7 +162,7 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
       {/* Share / Home / Link Row */}
       <div className="pt-6 border-t-2 border-[#292929] flex flex-wrap items-center justify-center gap-3 sm:gap-4">
         <button
-          onClick={handleShare}
+          onClick={() => setIsShareModalOpen(true)}
           className="px-4 py-2.5 bg-[#FFFDF9] text-[#292929] font-mono-code font-bold text-xs uppercase tracking-wider brutal-border brutal-shadow-sm hover:bg-[#EAE4D6] transition-colors flex items-center gap-2 cursor-pointer"
         >
           <Share2 className="w-4 h-4 text-[#E05A2B]" />
@@ -192,6 +194,15 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
           )}
         </button>
       </div>
+
+      {/* Interactive Native & Fallback Share Modal */}
+      <ShareModal
+        quiz={quiz}
+        score={score}
+        totalQuestions={totalQuestions}
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+      />
     </div>
   );
 };

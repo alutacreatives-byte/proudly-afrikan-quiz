@@ -30,7 +30,7 @@ export const Footer: React.FC<FooterProps> = ({
               ABOUT THIS TOOL
             </h4>
             <p className="text-sm sm:text-base text-[#D8D2C5] max-w-md leading-relaxed">
-              Proudly Afrikan Quiz is the premier release under the Proudly Afrikan Education initiative. Designed to inspire active recall, deep synthesis, and cultural confidence.
+              Proudly Afrikan Quiz is a fun way to learn, test yourself and share what you know. Turn your notes, articles, topics and PDFs into quizzes and see how you score.
             </p>
           </div>
 
