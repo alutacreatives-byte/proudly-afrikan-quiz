@@ -102,9 +102,9 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
   };
 
   return (
-    <div className="bg-[#F5F0E6] brutal-border-thick brutal-shadow-lg p-5 sm:p-10 md:p-12 text-center max-w-4xl mx-auto transition-all w-full box-border">
+    <div className="bg-white rounded-[2.5rem] border border-[#E6E0D5] shadow-[0_15px_40px_-10px_rgba(41,41,41,0.08)] p-6 sm:p-10 md:p-12 text-center max-w-4xl mx-auto transition-all w-full box-border">
       {/* Top Banner Tag */}
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#EAE4D6] brutal-border text-xs font-mono-code font-bold uppercase tracking-wider text-[#292929] mb-8">
+      <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#FAF7F2] rounded-full border border-[#E0D8C5] text-xs font-mono-code font-bold uppercase tracking-wider text-[#292929] mb-8">
         <Award className="w-4 h-4 text-[#E05A2B]" />
         <span>ASSESSMENT COMPLETE</span>
       </div>
@@ -117,13 +117,13 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
         <div className="font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-[#292929] tracking-tighter leading-none my-3">
           {score} <span className="text-[#A39E93] text-3xl sm:text-5xl">/</span> {totalQuestions}
         </div>
-        <div className="inline-block px-5 py-2 bg-[#292929] text-[#F5F0E6] font-display font-black text-2xl sm:text-4xl brutal-border mt-2">
+        <div className="inline-block px-6 py-2 bg-[#292929] text-[#F5F0E6] font-display font-black text-2xl sm:text-4xl rounded-2xl mt-2 shadow-xs">
           {percentage}%
         </div>
       </div>
 
       {/* Encouraging Editorial Feedback */}
-      <div className="max-w-xl mx-auto my-8 p-5 sm:p-6 bg-[#EAE4D6] brutal-border brutal-shadow-sm">
+      <div className="max-w-xl mx-auto my-8 p-5 sm:p-6 bg-[#FAF7F2] rounded-2xl border border-[#E0D8C5]">
         <h3 className="font-display font-black text-xl sm:text-2xl md:text-3xl text-[#E05A2B] uppercase">
           {feedbackTitle}
         </h3>
@@ -136,7 +136,7 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto mb-8">
         <button
           onClick={onReviewAnswers}
-          className="py-4 px-4 bg-[#292929] text-[#F5F0E6] hover:bg-[#1A1A1A] font-display font-black text-sm sm:text-base uppercase brutal-border brutal-shadow-sm brutal-hover flex items-center justify-center gap-2 cursor-pointer"
+          className="py-4 px-4 bg-[#292929] text-[#F5F0E6] hover:bg-[#1A1A1A] font-display font-black text-sm sm:text-base uppercase rounded-2xl shadow-sm hover:shadow-md hover:scale-102 transition-all flex items-center justify-center gap-2 cursor-pointer"
         >
           <Eye className="w-4 h-4 text-[#E05A2B]" />
           <span>REVIEW ANSWERS</span>
@@ -144,7 +144,7 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
 
         <button
           onClick={onTryAgain}
-          className="py-4 px-4 bg-[#F5F0E6] text-[#292929] hover:bg-[#EAE4D6] font-display font-black text-sm sm:text-base uppercase brutal-border brutal-shadow-sm brutal-hover flex items-center justify-center gap-2 cursor-pointer"
+          className="py-4 px-4 bg-[#FAF7F2] text-[#292929] hover:bg-[#F0EBE0] font-display font-black text-sm sm:text-base uppercase rounded-2xl border border-[#E0D8C5] shadow-xs hover:shadow-md hover:scale-102 transition-all flex items-center justify-center gap-2 cursor-pointer"
         >
           <RotateCcw className="w-4 h-4 text-[#292929]" />
           <span>TRY AGAIN</span>
@@ -152,7 +152,7 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
 
         <button
           onClick={onCreateAnother}
-          className="py-4 px-4 bg-[#E05A2B] text-white hover:bg-[#CC4F24] font-display font-black text-sm sm:text-base uppercase brutal-border brutal-shadow-sm brutal-hover flex items-center justify-center gap-2 cursor-pointer"
+          className="py-4 px-4 bg-[#E05A2B] text-white hover:bg-[#CC4F24] font-display font-black text-sm sm:text-base uppercase rounded-2xl shadow-sm hover:shadow-md hover:scale-102 transition-all flex items-center justify-center gap-2 cursor-pointer"
         >
           <PlusCircle className="w-4 h-4" />
           <span>CREATE ANOTHER</span>
@@ -160,10 +160,10 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
       </div>
 
       {/* Share / Home / Link Row */}
-      <div className="pt-6 border-t-2 border-[#292929] flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+      <div className="pt-6 border-t border-[#292929]/10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
         <button
           onClick={() => setIsShareModalOpen(true)}
-          className="px-4 py-2.5 bg-[#FFFDF9] text-[#292929] font-mono-code font-bold text-xs uppercase tracking-wider brutal-border brutal-shadow-sm hover:bg-[#EAE4D6] transition-colors flex items-center gap-2 cursor-pointer"
+          className="px-5 py-3 bg-[#FAF7F2] text-[#292929] font-mono-code font-bold text-xs uppercase tracking-wider rounded-full border border-[#E0D8C5] hover:bg-white shadow-xs hover:shadow-sm transition-all flex items-center gap-2 cursor-pointer"
         >
           <Share2 className="w-4 h-4 text-[#E05A2B]" />
           <span>SHARE QUIZ</span>
@@ -171,7 +171,7 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
 
         <button
           onClick={onHome || onCreateAnother}
-          className="px-4 py-2.5 bg-[#FFFDF9] text-[#292929] font-mono-code font-bold text-xs uppercase tracking-wider brutal-border brutal-shadow-sm hover:bg-[#EAE4D6] transition-colors flex items-center gap-2 cursor-pointer"
+          className="px-5 py-3 bg-[#FAF7F2] text-[#292929] font-mono-code font-bold text-xs uppercase tracking-wider rounded-full border border-[#E0D8C5] hover:bg-white shadow-xs hover:shadow-sm transition-all flex items-center gap-2 cursor-pointer"
         >
           <Home className="w-4 h-4 text-[#292929]" />
           <span>HOME</span>
@@ -179,7 +179,7 @@ export const ResultsScreen: React.FC<ResultsScreenProps> = ({
 
         <button
           onClick={handleCopyLink}
-          className="px-4 py-2.5 bg-[#FFFDF9] text-[#292929] font-mono-code font-bold text-xs uppercase tracking-wider brutal-border brutal-shadow-sm hover:bg-[#EAE4D6] transition-colors flex items-center gap-2 cursor-pointer"
+          className="px-5 py-3 bg-[#FAF7F2] text-[#292929] font-mono-code font-bold text-xs uppercase tracking-wider rounded-full border border-[#E0D8C5] hover:bg-white shadow-xs hover:shadow-sm transition-all flex items-center gap-2 cursor-pointer"
         >
           {copied ? (
             <>

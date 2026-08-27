@@ -15,52 +15,63 @@ export const ThreeWaysSection: React.FC<ThreeWaysSectionProps> = ({
     {
       id: 'topic' as CreationMethod,
       num: '01',
+      badgeText: 'FASTEST',
+      badgeClass: 'bg-[#E05A2B] text-white shadow-xs',
       title: 'TYPE IT.',
-      subtitle: 'Topic & Idea Mode',
-      desc: 'Enter any topic, curriculum subject, or historical event and let AI craft a structured quiz instantly.',
+      subtitle: 'TOPIC & IDEA MODE',
+      desc: 'Enter any topic, curriculum subject, or concept and let AI craft a structured quiz resource instantly.',
       icon: Type,
-      tag: 'FASTEST',
     },
     {
       id: 'text' as CreationMethod,
       num: '02',
+      badgeText: 'DEEP CONTEXT',
+      badgeClass: 'bg-[#FAF7F2] border border-[#E0D8C5] text-[#5E5950]',
       title: 'PASTE IT.',
-      subtitle: 'Notes & Articles',
-      desc: 'Paste class notes, syllabus summaries, research papers, or study guides to drill key takeaways.',
+      subtitle: 'NOTES & ARTICLES',
+      desc: 'Paste syllabus paragraphs, lesson transcripts, or curriculum excerpts to ground the generated questions.',
       icon: ClipboardCopy,
-      tag: 'DEEP CONTEXT',
     },
     {
       id: 'pdf' as CreationMethod,
       num: '03',
+      badgeText: 'PDF • DOC • DOCX',
+      badgeClass: 'bg-[#1A1A1A] text-white',
       title: 'UPLOAD IT.',
-      subtitle: 'Document & PDF',
-      desc: 'Drop in course PDFs, lecture slides, or textbook chapters to generate grounded examination questions.',
+      subtitle: 'DOCUMENT & PDF MODE',
+      desc: 'Drop in textbook chapters, PDFs, Word docs, or test drafts to extract context and synthesize quiz questions.',
       icon: FileUp,
-      tag: 'DIRECT FILE',
     },
   ];
 
+  const handleCardClick = (method: CreationMethod) => {
+    onSelectMethod(method);
+    const builderEl = document.getElementById('quiz-builder');
+    if (builderEl) {
+      builderEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="py-16 md:py-20 border-b-2 border-[#292929] bg-[#EAE4D6]/40">
+    <section className="py-14 md:py-20 border-b border-[#292929]/10 bg-[#F5F0E6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b-2 border-[#292929]/20 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[#292929]/10 gap-4">
           <div>
-            <span className="font-mono-code text-xs font-bold uppercase tracking-widest text-[#E05A2B] block mb-1">
+            <span className="font-mono-code text-xs font-bold uppercase tracking-widest text-[#E05A2B] block mb-2">
               FLEXIBLE INPUT MODES
             </span>
-            <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-[#292929] leading-none">
+            <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight text-[#292929] leading-none">
               THREE WAYS TO CREATE.
             </h2>
           </div>
-          <p className="font-mono-code text-xs sm:text-sm text-[#5E5950] max-w-sm">
+          <p className="font-mono-code text-xs sm:text-sm text-[#5E5950] max-w-md leading-relaxed">
             Select an input method below to immediately jump into the quiz generator workbench.
           </p>
         </div>
 
-        {/* 3 Large Modular Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* 3 Elevated Soft Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {cards.map((card) => {
             const Icon = card.icon;
             const isSelected = activeMethod === card.id;
@@ -68,55 +79,49 @@ export const ThreeWaysSection: React.FC<ThreeWaysSectionProps> = ({
             return (
               <div
                 key={card.id}
-                onClick={() => onSelectMethod(card.id)}
-                className={`relative bg-[#F5F0E6] brutal-border p-6 sm:p-8 flex flex-col justify-between cursor-pointer transition-all ${
+                onClick={() => handleCardClick(card.id)}
+                className={`bg-white rounded-[2rem] border transition-all p-7 sm:p-8 flex flex-col justify-between cursor-pointer group ${
                   isSelected
-                    ? 'brutal-shadow-lg ring-2 ring-[#E05A2B] -translate-y-1 bg-[#FFFDF9]'
-                    : 'brutal-shadow brutal-hover'
+                    ? 'border-[#E05A2B] shadow-[0_16px_40px_-10px_rgba(224,90,43,0.15)] ring-2 ring-[#E05A2B]/20'
+                    : 'border-[#E6E0D5] shadow-[0_10px_30px_-10px_rgba(41,41,41,0.05)] hover:shadow-lg hover:-translate-y-1 hover:border-[#292929]/30'
                 }`}
               >
-                {/* Top card bar */}
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono-code font-bold text-2xl sm:text-3xl text-[#292929]/40">
+                  {/* Top card bar with number and pill */}
+                  <div className="flex items-center justify-between mb-5">
+                    <span className="font-display font-black text-2xl sm:text-3xl text-[#A39E93]">
                       {card.num}
                     </span>
-                    <span
-                      className={`text-[10px] font-mono-code font-bold px-2.5 py-1 brutal-border ${
-                        isSelected ? 'bg-[#E05A2B] text-white' : 'bg-[#EAE4D6] text-[#292929]'
-                      }`}
-                    >
-                      {card.tag}
+                    <span className={`px-3 py-1 rounded-full text-[10px] font-mono-code font-bold uppercase tracking-wider ${card.badgeClass}`}>
+                      {card.badgeText}
                     </span>
                   </div>
 
-                  <div className="w-12 h-12 bg-[#292929] text-[#F5F0E6] brutal-border flex items-center justify-center mb-6 shadow-[2px_2px_0px_#E05A2B]">
-                    <Icon className="w-6 h-6 text-[#E05A2B]" />
+                  {/* Dark Circular Icon Badge */}
+                  <div className="w-12 h-12 rounded-full bg-[#1A1A1A] text-[#E05A2B] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-[#E05A2B] group-hover:text-white transition-all shadow-xs">
+                    <Icon className="w-5 h-5" />
                   </div>
 
-                  <h3 className="font-display font-black text-xl sm:text-2xl text-[#292929] uppercase tracking-tight mb-2 leading-tight">
+                  {/* Title & Subtitle */}
+                  <h3 className="font-display font-black text-2xl sm:text-3xl text-[#292929] uppercase tracking-tight leading-tight">
                     {card.title}
                   </h3>
-                  
-                  <div className="font-mono-code text-xs font-bold text-[#E05A2B] mb-3">
+                  <div className="font-mono-code text-[11px] font-bold text-[#E05A2B] uppercase tracking-wider mt-1 mb-3">
                     {card.subtitle}
                   </div>
 
-                  <p className="text-xs sm:text-sm text-[#4D4D4D] leading-relaxed mb-6 font-medium">
+                  {/* Subtext Description */}
+                  <p className="text-sm sm:text-base text-[#4D4D4D] leading-relaxed font-normal">
                     {card.desc}
                   </p>
                 </div>
 
                 {/* Bottom Card Action */}
-                <div className="pt-4 border-t border-[#292929]/20 flex items-center justify-between">
-                  <span className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#292929]">
-                    {isSelected ? 'ACTIVE SELECTION' : 'SELECT MODE'}
+                <div className="pt-6 mt-6 border-t border-[#292929]/10 flex items-center justify-between">
+                  <span className="font-mono-code text-xs font-bold uppercase tracking-wider text-[#292929] group-hover:text-[#E05A2B] transition-colors">
+                    LAUNCH BUILDER
                   </span>
-                  <div
-                    className={`w-7 h-7 brutal-border flex items-center justify-center ${
-                      isSelected ? 'bg-[#E05A2B] text-white' : 'bg-[#F5F0E6] text-[#292929]'
-                    }`}
-                  >
+                  <div className="w-8 h-8 rounded-full bg-[#292929] text-white flex items-center justify-center group-hover:bg-[#E05A2B] group-hover:translate-y-0.5 transition-all">
                     <ArrowDown className="w-4 h-4" />
                   </div>
                 </div>

@@ -37,15 +37,15 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       {/* Main navigation bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4 relative z-10">
         {/* Brand logo & mark */}
         <button
           onClick={onNewQuizClick}
           className="flex items-center gap-3 text-left group cursor-pointer focus:outline-none"
           aria-label="Proudly Afrikan Quiz Home"
         >
-          {/* Square Emblem Badge with Logo on Orange Background */}
-          <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#E05A2B] brutal-border flex items-center justify-center p-1.5 shadow-[2px_2px_0px_#292929] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform shrink-0">
+          {/* Rounded Emblem Badge with Logo on Orange Background */}
+          <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#E05A2B] rounded-xl sm:rounded-2xl border border-[#292929]/20 flex items-center justify-center p-1.5 shadow-sm group-hover:scale-105 transition-transform shrink-0">
             <img
               src="https://sifisos.com/wp-content/uploads/2026/04/Proudly-Afrikan-Logo.png"
               alt="Proudly Afrikan Logo"
@@ -90,15 +90,15 @@ export const Header: React.FC<HeaderProps> = ({
           {recentQuizzes.length > 0 && (
             <div className="relative group hidden sm:block">
               <button
-                className="px-3 py-2 bg-[#EAE4D6] brutal-border text-xs font-mono-code font-bold text-[#292929] flex items-center gap-1.5 hover:bg-[#E0D8C5] transition-colors"
+                className="px-3.5 py-2 bg-[#FAF7F2] rounded-full border border-[#E0D8C5] shadow-xs text-xs font-mono-code font-bold text-[#292929] flex items-center gap-1.5 hover:bg-[#EAE4D6] transition-colors"
                 title="Recent Quizzes"
               >
                 <Layers className="w-3.5 h-3.5 text-[#E05A2B]" />
                 <span>SAVED ({recentQuizzes.length})</span>
               </button>
               
-              <div className="absolute right-0 mt-1 w-64 bg-[#F5F0E6] brutal-border brutal-shadow p-2 hidden group-hover:block group-focus-within:block z-50">
-                <div className="text-[10px] font-mono-code font-bold uppercase text-[#736E65] px-2 py-1 border-b border-[#292929]/20">
+              <div className="absolute right-0 mt-2 w-64 bg-[#FAF7F2] rounded-2xl border border-[#E0D8C5] shadow-lg p-2.5 hidden group-hover:block group-focus-within:block z-50">
+                <div className="text-[10px] font-mono-code font-bold uppercase text-[#736E65] px-2 py-1 border-b border-[#292929]/10">
                   Saved Assessments
                 </div>
                 <div className="max-h-48 overflow-y-auto mt-1 space-y-1">
@@ -106,7 +106,7 @@ export const Header: React.FC<HeaderProps> = ({
                     <button
                       key={quiz.id}
                       onClick={() => onSelectRecentQuiz(quiz)}
-                      className="w-full text-left px-2 py-1.5 text-xs font-medium hover:bg-[#E05A2B] hover:text-white transition-colors truncate block rounded-none"
+                      className="w-full text-left px-2.5 py-1.5 text-xs font-medium rounded-lg hover:bg-[#E05A2B] hover:text-white transition-colors truncate block"
                     >
                       {quiz.title}
                     </button>
@@ -119,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Create Quiz Button */}
           <button
             onClick={() => onScrollToSection('quiz-builder')}
-            className="px-4 py-2 bg-[#E05A2B] text-white font-mono-code font-bold text-xs sm:text-sm tracking-wider uppercase brutal-border brutal-shadow-sm brutal-hover flex items-center gap-2 cursor-pointer"
+            className="px-5 py-2.5 bg-[#E05A2B] hover:bg-[#CC4F24] text-white font-mono-code font-bold text-xs sm:text-sm tracking-wider uppercase rounded-full shadow-md hover:shadow-lg hover:scale-102 transition-all flex items-center gap-2 cursor-pointer"
           >
             <span>MAKE QUIZ</span>
             <ArrowUpRight className="w-4 h-4" />

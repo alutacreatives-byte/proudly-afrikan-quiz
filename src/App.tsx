@@ -300,23 +300,23 @@ export default function App() {
           />
 
           {/* Zero-Latency Instant Sample Preview Card */}
-          <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="bg-[#EAE4D6] brutal-border p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 brutal-shadow-sm">
-              <div className="space-y-1 text-center md:text-left">
+          <section className="py-10 max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="bg-white rounded-[2rem] border border-[#E6E0D5] p-7 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_30px_-10px_rgba(41,41,41,0.05)]">
+              <div className="space-y-1.5 text-center md:text-left">
                 <span className="font-mono-code text-xs font-bold uppercase tracking-widest text-[#E05A2B]">
                   INSTANT TRIAL
                 </span>
-                <h3 className="font-display font-black text-2xl sm:text-3xl text-[#292929] uppercase">
+                <h3 className="font-display font-black text-2xl sm:text-3xl text-[#292929] uppercase tracking-tight">
                   WANT TO TEST A QUIZ IMMEDIATELY?
                 </h3>
-                <p className="text-sm text-[#4A4A4A]">
-                  Jump right into our pre-crafted assessment: <em>The Kingdom of Mali & Mansa Musa</em>.
+                <p className="text-sm sm:text-base text-[#4D4D4D] font-normal">
+                  Jump right into our pre-crafted assessment: <em className="font-semibold text-[#292929]">The Kingdom of Mali & Mansa Musa</em>.
                 </p>
               </div>
 
               <button
                 onClick={handleLoadDemoQuiz}
-                className="px-6 py-3.5 bg-[#292929] text-[#F5F0E6] hover:bg-[#1A1A1A] font-display font-black text-base uppercase brutal-border brutal-shadow-sm brutal-hover flex items-center gap-2.5 cursor-pointer shrink-0"
+                className="px-7 py-4 bg-[#292929] text-[#F5F0E6] hover:bg-[#1A1A1A] font-display font-black text-base uppercase rounded-full shadow-md hover:shadow-lg hover:scale-102 transition-all flex items-center gap-2.5 cursor-pointer shrink-0"
               >
                 <Play className="w-4 h-4 text-[#E05A2B] fill-[#E05A2B]" />
                 <span>LAUNCH DEMO QUIZ</span>
